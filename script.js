@@ -8,11 +8,9 @@ export class RangePicker {
         this.onSelectorClick = this.onSelectorClick.bind(this);
         this.onDocumentClick = this.onDocumentClick.bind(this);
         this.render();
-        this.isSelectedTo = true;
     }
 
     render() {
-
         this.elem = createElement(`<div class="rangepicker">
             <div class="rangepicker__input" data-elem="input">
                 <span data-elem="from">${this.selected.from.toLocaleString('default', {dateStyle: 'short'})}</span> -
@@ -33,7 +31,7 @@ export class RangePicker {
 
         this.elems.selector.addEventListener('click', this.onSelectorClick);
 
-        document.addEventListener('click', this.onDocumentClick)
+        document.addEventListener('click', this.onDocumentClick, true)
     };
 
     onDocumentClick(event) {
